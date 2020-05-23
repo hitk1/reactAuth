@@ -4,6 +4,7 @@ import mongoose from 'mongoose'
 
 import { Generic } from './generic.class'
 import authController from './controllers/auth'
+import { userController } from './controllers/user'
 
 const bodyParser = require('koa-bodyparser')
 const koaBody = require('koa-body')
@@ -50,7 +51,10 @@ class KoaServer {
 
     init() {
         this.startDBConnection()
-        this.startRoutes([authController])
+        this.startRoutes([
+            authController,
+            userController
+        ])
         
         this.app.listen(3333)
         console.log(`Server on: http://localhost:3333`)

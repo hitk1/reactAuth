@@ -19,7 +19,10 @@ class AuthController extends Generic {
         koaRouter.post(`/${this.api}`, async (ctx: any, next: any) => {
 
             await this.authService.store(ctx.request.body as IAuthUserAuthentication)
-                .then(validResponse => ctx.body = this.validResponse(validResponse))
+                .then(validResponse => {
+                    console.log('deu bom', validResponse)
+                    ctx.body = this.validResponse(validResponse)
+                })
                 .catch(error => {
                     ctx.status = 401
                     ctx.body = this.invalidResponse(error)

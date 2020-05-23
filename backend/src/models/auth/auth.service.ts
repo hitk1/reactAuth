@@ -8,7 +8,7 @@ import * as userInterfaces from '../user/user.interfaces'
 export class AuthService {
     constructor() { }
 
-    store(json: interfaces.IAuthUserAuthentication) {
+    store(json: interfaces.IAuthUserAuthentication): Promise<string> {
         return new Promise(async (resolve, reject) => {
 
             const schema = Yup.object().shape({
@@ -35,7 +35,7 @@ export class AuthService {
                         { expiresIn: '2h'}
                         )
 
-                    await interfaces.AuthModel.create(myJwt)
+                    await interfaces.AuthModel.create(<interfaces.IAuth>{ jwt: myJwt})
                     resolve(myJwt)
 
                 } else
