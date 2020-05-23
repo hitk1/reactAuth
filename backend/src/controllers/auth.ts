@@ -1,23 +1,31 @@
 import koaRouter from 'koa-router'
 
 import { Generic } from "../generic.class";
+import { AuthService } from '../models/auth/auth.service'
+import { IAuthUserAuthentication } from '../models/auth/auth.interfaces';
 
-class Auth extends Generic {
 
-    private koaRoute: koaRouter
+class AuthController extends Generic {
+
     api: string
-    constructor(){
+    private authService: AuthService
+    constructor() {
         super()
-        this.koaRoute = new koaRouter()
         this.api = 'auth'
+        this.authService = new AuthService()
     }
 
     startRoute(koaRouter: koaRouter) {
-        koaRouter.get(`/${this.api}`, async (ctx) => {
-            
-            ctx.body = {message: 'acessado!'}
+        koaRouter.post(`/${this.api}`, async (ctx: any, next: any) => {
+
+            await this.authService.store(ctx.request.body as IAuthUserAuthentication)
+                .then(validResponse => ctx.body = this.validResponse(validResponse))
+                .catch(error => {
+                    ctx.status = 401
+                    ctx.body = this.invalidResponse(error)
+                })
         })
     }
 }
 
-export default new Auth()
+export default new AuthController()
