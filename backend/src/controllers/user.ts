@@ -18,7 +18,7 @@ class UserController extends Generic {
         koaRouter.post(`/${this.api}`, async (ctx: any) => {
 
             await this.userService.store(ctx.request.body)
-            .then(validResponse => this.validResponse(validResponse))
+            .then(validResponse => ctx.body = this.validResponse(validResponse))
             .catch(error => {
                 ctx.status = 401
                 ctx.body = this.invalidResponse(error)
