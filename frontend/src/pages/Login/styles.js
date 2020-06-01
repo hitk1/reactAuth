@@ -7,9 +7,9 @@ export const Container = styled.div`
     background: transparent;
     padding-top: 30px;
     margin-bottom: 30px;
-    height: 85vh;
+    height: 65vh;
     max-height: 100%;
-    min-height: 540px;
+    min-height: 680px;
 `
 export const LeftContainer = styled.div`
     background: url(${background}) no-repeat center top;
@@ -36,19 +36,16 @@ export const FooterScrim = styled.div`
 `
 
 export const FormContainer = styled.div`
-    margin: 5%;
-`
-
-export const RightContainer = styled.div`
-    background: #ddd;
-    flex: 0.35;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
+    margin: 10%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
+    img {
+        margin-bottom: 15px;
+    }
 
     h1 {
         margin-bottom: 25px;
@@ -60,6 +57,8 @@ export const RightContainer = styled.div`
     }
 
     form {
+        width: 100%;
+        align-self: flex-start;
         display: flex;
         flex-direction: column;
 
@@ -69,15 +68,16 @@ export const RightContainer = styled.div`
         }
 
         input {
-            margin-bottom: 35px;
-            border: 0;
+            margin-bottom: 15px;
+            border: 1px solid #DCDCE6;
             line-height:32px;
             padding: 0 10px;
         }
 
         button {
+            margin-top: 15px;
             width: 100%;
-            height: 50px;
+            height: 35px;
             border: 0;
             border-radius: 8px;
             color: #FFF;
@@ -85,6 +85,7 @@ export const RightContainer = styled.div`
             font-weight: 700;
             text-align: center;
             background: #4287f5;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
             transition: filter 0.2s
         }
 
@@ -92,4 +93,22 @@ export const RightContainer = styled.div`
             filter: brightness(90%);
         }
     }
+
+    section {
+        display: flex;
+        margin-top: 35px;
+
+        p {
+            font-size: 14px;
+        }
+    }
+
+
+`
+
+export const RightContainer = styled.div`
+    background: #ddd;
+    flex: 0.35;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
 `

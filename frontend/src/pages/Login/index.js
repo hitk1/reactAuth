@@ -8,6 +8,7 @@ import {
   FooterScrim,
   FormContainer,
 } from './styles';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
 
@@ -28,12 +29,12 @@ export default function Login() {
       </LeftContainer>
       <RightContainer>
         <FormContainer>
-          <img alt='ReactJS Logo' src={reactLogo} width={200} height={150} />
+          <img alt='ReactJS Logo' src={reactLogo} width={100} height={60} />
           <h1> Junte-se a nossa comunidade!</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos sint molestias illum sit. Iure perferendis reiciendis, recusandae libero vitae cupiditate ex placeat totam in ipsa repudiandae porro fugiat dignissimos vero.</p>
 
           <form onSubmit={handleSubmit}>
-            <label htmlFor="email" >Email</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               name="email"
@@ -52,6 +53,11 @@ export default function Login() {
             />
             <button type="submit">Entrar</button>
           </form>
+
+          <section>
+            <p>Não possui conta?</p>
+            <Link to='/register'>Cadastre-se</Link>
+          </section>
 
         </FormContainer>
       </RightContainer>
