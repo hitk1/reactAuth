@@ -26,7 +26,7 @@ export class AuthService {
 
             if (user) {
 
-                if (bcrypt.compare(password, user.passwordHash)) {
+                if (await bcrypt.compare(password, user.passwordHash)) {
                     
                     const userId = user._id
                     const myJwt = jwt.sign(

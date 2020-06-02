@@ -20,7 +20,6 @@ class AuthController extends Generic {
 
             await this.authService.store(ctx.request.body as IAuthUserAuthentication)
                 .then(validResponse => {
-                    console.log('deu bom', validResponse)
                     ctx.body = this.validResponse(validResponse)
                 })
                 .catch(error => {
