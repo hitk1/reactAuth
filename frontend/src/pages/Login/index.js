@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import reactLogo from '../../assets/react-logo.png'
 import { Link, useHistory } from 'react-router-dom';
 import * as yup from 'yup'
@@ -20,6 +20,9 @@ export default function Login() {
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
   const history = useHistory()
+
+  //Toda vez que essa pagina é recarregada, o localStorage é limpado
+  useEffect(() => localStorage.clear(), [])
 
   const schema = yup.object().shape({
     email: yup.string().email().required('O email é obrigatório'),

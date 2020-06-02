@@ -1,11 +1,18 @@
 import React, { memo } from 'react';
 
-// import { Container } from './styles';
+import { Container, LeftContainer, RightContainer} from './styles';
 
 function Register() {
   return (
-      <div>Página de cadastro</div>
+      <Container>
+        <LeftContainer>
+
+        </LeftContainer>
+        <RightContainer>
+
+        </RightContainer>
+      </Container>
   )
 }
 
-export default memo(Register);
+export default Register;
