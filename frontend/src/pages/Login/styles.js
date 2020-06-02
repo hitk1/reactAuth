@@ -70,12 +70,13 @@ export const FormContainer = styled.div`
         input {
             margin-bottom: 15px;
             border: 1px solid #DCDCE6;
+            border-radius: 4px;
             line-height:32px;
             padding: 0 10px;
         }
 
         button {
-            margin-top: 15px;
+            margin-top: 35px;
             width: 100%;
             height: 35px;
             border: 0;
@@ -111,4 +112,8 @@ export const RightContainer = styled.div`
     flex: 0.35;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
+`
+export const ErrorMessage = styled.p`
+    font-size: 12px;
+    color: red;
 `
